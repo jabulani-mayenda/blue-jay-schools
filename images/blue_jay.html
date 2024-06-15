@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue_Jay Schools</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        .navbar {
+            background-color: rgb(3, 2, 66);
+            z-index: 998;
+            position: fixed;
+            width: 100%;
+            height: 100px;
+            margin-top:110px;
+        }
+        .navbar2 {
+            background-color: white;
+            z-index: 999;
+            position: fixed;
+            width: 100%;
+            height: 110px;
+            margin-top:0px;
+        }
+        .container {
+            padding: 20px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: auto;
+            max-height: 100px;
+            margin-right: 10px;
+        }
+
+        .title {
+            justify-content: center;
+            color: rgb(247, 247, 253);
+        }
+
+        .title h1,
+        .title h2 {
+            margin: 0;
+            font-size: 3.5rem;
+        }
+
+        .title h2 {
+            font-size: 80%;
+            margin-left: 5px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 500px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .navbar-nav .nav-item a.nav-link:hover {
+            color: rgb(2, 129, 51);
+            text-decoration: underline;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 20px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(0, 160, 61, 0.979);
+        }
+
+        .navbar-nav .nav-item.active a.nav-link:hover {
+            color: rgb(4, 141, 77);
+        }
+
+        @media only screen and (max-width: 768px) {
+            .title h1 {
+                font-size: 2.5rem;
+            }
+            .title h2 {
+                font-size: 70%;
+            }
+            .navbar {
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .partners {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-img {
+                max-width: 65px;
+            }
+            .logo-text {
+                font-size: 25px !important;
+            }
+            .club-name {
+                font-size: 15px !important;
+            }
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            margin-top: 100px;
+            height: 300px;
+            perspective: 1000px
+            
+            
+        }
+
+        .flip-card-inner {
+            position: relative;
+            
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+        }
+        .curriculum-section, .gallery-section, .sign-up-section {
+            padding: 40px 0;
+        }
+        .curriculum-section {
+            background-color: #f8f9fa;
+        }
+        .gallery-section {
+            background-color: #f1f1f1;
+        }
+        .sign-up-section {
+            background-color: #e9ecef;
+        }
+        .curriculum-title, .gallery-title, .sign-up-title {
+            text-align: center;
+            color: #ff69b4; /* Pink color */
+        }
+        .curriculum-description, .gallery-description, .sign-up-description {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 800px;
+            color: #333;
+        }
+        .sign-up-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sign-up-form input, .sign-up-form button {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(234, 233, 240); position: relative; padding-top: 0px; margin: 0px; box-sizing: border-box; font-family: sans-serif; width: 100%;">
+    <header>
+        <nav class="navbar2 navbar-expand-lg">
+            <a class="navbar-brand" href="#">
+                <img src="IMAGES/logo.jpg" style="position: fixed;  left: 43%; top: 10px; height: 50%; width: auto;"  alt="logo" class="img-fluid logo-img">
+               
+            </a>
+
+        </nav>
+        <nav class="navbar navbar-expand-lg">
+            
+                <div class="title">
+                    <h1 class="logo-text">BLUE JAY SCHOOLS</h1>
+                    <h2 class="club-name">MOLDING GREAT MINDS</h2>
+                </div>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: transparent; border: none;">
+                <img src="images/menu-bar.png" alt="Toggle navigation" style="width: 30px; height: auto;">
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: rgb(238, 230, 230);" data-toggle="modal" data-target="#aboutUsModal">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: rgb(238, 230, 230);" data-toggle="modal" data-target="#whatWeDoModal">
+                            Location
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: rgb(238, 230, 230);" data-toggle="modal" data-target="#whereWeWorkModal">
+                            Where We Work
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" style="color: white;" data-toggle="modal" data-target="#donateModal">
+                            APPLY
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- Modals -->
+    <div class="modal fade" id="aboutUsModal" tabindex="-1" role="dialog" aria-labelledby="aboutUsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutUsModalLabel">About Us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Karonga Debate Club (KADEC) second concept was conceived in 2018 and, after consultation with key stakeholders in Karonga District.  The Organisation was then established in 2004 as Youth Organisation that will support national development across Malawi. In 2015 KADEC became a local non-governmental organisation. KADEC follows an empowerment model, which promotes capacity building, socio-economic, political and sustainable development, with the goal to facilitating access to equal opportunities and citizen engagement in social, civic, economic and political life. KADEC later registered its membership to different networks such as Malawi-Scotland Partnership, Youth Act Alliance and Karonga Civil Society Organizations Network.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="whatWeDoModal" tabindex="-1" role="dialog" aria-labelledby="whatWeDoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="whatWeDoModalLabel">What we do</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Governance and Rule of Law.</li>
+                        <li>Human Rights</li>
+                        <li>Gender Equality and Women Empowerment</li>
+                        <li>Health</li>
+                        <li>Economic Development</li>
+                        <li>Youth Participation</li>
+                        <li>Environment Conversation</li>
+                        <li>Inclusive Education</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="whereWeWorkModal" tabindex="-1" role="dialog" aria-labelledby="whereWeWorkModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="whereWeWorkModalLabel">Where we work</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Governance and Rule of Law.</li>
+                        <li>Human Rights</li>
+                        <li>Gender Equality and Women Empowerment</li>
+                        <li>Health</li>
+                        <li>Economic Development</li>
+                        <li>Youth Participation</li>
+                        <li>Environment Conversation</li>
+                        <li>Inclusive Education</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donateModalLabel">APPLY</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Application information here...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper" style="margin: 0;padding: 0;width: 100%; top: 80px;">
+        <div class="swiper-wrapper">
+            
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.29_7c6ad8c2.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.30_6c9e4e7b.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.30_c8ed77d2.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.31_2e20d84f.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.31_a0818ba8.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/background2.jpg"></div>
+        </div>
+        
+        <div class="swiper-pagination"></div>
+        
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <!-- Flip card section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.29_7c6ad8c2.jpg" alt="Image 1">
+                        </div>
+                        <div class="flip-card-back">
+                            <h2>Image 1 Description</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="IMAGES/Profile photo.jpg" alt="Image 2">
+                        </div>
+                        <div class="flip-card-back">
+                            <h2>Image 2 Description</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src=" IMAGES/images 2.jpg" style="object-fit: cover;" alt="Image 3">
+                        </div>
+                        <div class="flip-card-back">
+                            <h2>Image 3 Description</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      
+        const swiper = new Swiper('.swiper', {
+            autoplay: {
+                delay: 3000,
+            },
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+    
+
+    
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue_Jay Schools</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        .navbar {
+            background-color: rgb(3, 2, 66);
+            z-index: 998;
+            position: fixed;
+            width: 100%;
+            height: 100px;
+            margin-top:110px;
+        }
+        .navbar2 {
+            background-color: white;
+            z-index: 999;
+            position: fixed;
+            width: 100%;
+            height: 110px;
+            margin-top:0px;
+        }
+        .container {
+            padding: 20px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: auto;
+            max-height: 100px;
+            margin-right: 10px;
+        }
+
+        .title {
+            justify-content: center;
+            color: rgb(247, 247, 253);
+        }
+
+        .title h1,
+        .title h2 {
+            margin: 0;
+            font-size: 3.5rem;
+        }
+
+        .title h2 {
+            font-size: 80%;
+            margin-left: 5px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 500px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .navbar-nav .nav-item a.nav-link:hover {
+            color: rgb(2, 129, 51);
+            text-decoration: underline;
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 20px;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(0, 160, 61, 0.979);
+        }
+
+        .navbar-nav .nav-item.active a.nav-link:hover {
+            color: rgb(4, 141, 77);
+        }
+
+        @media only screen and (max-width: 768px) {
+            .title h1 {
+                font-size: 2.5rem;
+            }
+            .title h2 {
+                font-size: 70%;
+            }
+            .navbar {
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .partners {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-img {
+                max-width: 65px;
+            }
+            .logo-text {
+                font-size: 25px !important;
+            }
+            .club-name {
+                font-size: 15px !important;
+            }
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            margin-top: 100px;
+            height: 300px;
+            perspective: 1000px
+            
+            
+        }
+
+        .flip-card-inner {
+            position: relative;
+            
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body style="background-color: rgb(234, 233, 240); position: relative; padding-top: 0px; margin: 0px; box-sizing: border-box; font-family: sans-serif; width: 100%;">
+    <header>
+        <nav class="navbar2 navbar-expand-lg">
+            <a class="navbar-brand" href="#">
+                <img src="IMAGES/logo.jpg" style="position: fixed;  left: 43%; top: 10px; height: 50%; width: auto;"  alt="logo" class="img-fluid logo-img">
+               
+            </a>
+
+        </nav>
+        <nav class="navbar navbar-expand-lg">
+            
+                <div class="title">
+                    <h1 class="logo-text">BLUE JAY SCHOOLS</h1>
+                    <h2 class="club-name">MOLDING GREAT MINDS</h2>
+                </div>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: transparent; border: none;">
+                <img src="images/menu-bar.png" alt="Toggle navigation" style="width: 30px; height: auto;">
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: rgb(238, 230, 230);" data-toggle="modal" data-target="#aboutUsModal">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: rgb(238, 230, 230);" data-toggle="modal" data-target="#whatWeDoModal">
+                            Location
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: rgb(238, 230, 230);" data-toggle="modal" data-target="#whereWeWorkModal">
+                            Where We Work
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" style="color: white;" data-toggle="modal" data-target="#donateModal">
+                            APPLY
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- Modals -->
+    <div class="modal fade" id="aboutUsModal" tabindex="-1" role="dialog" aria-labelledby="aboutUsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutUsModalLabel">About Us</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Karonga Debate Club (KADEC) second concept was conceived in 2018 and, after consultation with key stakeholders in Karonga District.  The Organisation was then established in 2004 as Youth Organisation that will support national development across Malawi. In 2015 KADEC became a local non-governmental organisation. KADEC follows an empowerment model, which promotes capacity building, socio-economic, political and sustainable development, with the goal to facilitating access to equal opportunities and citizen engagement in social, civic, economic and political life. KADEC later registered its membership to different networks such as Malawi-Scotland Partnership, Youth Act Alliance and Karonga Civil Society Organizations Network.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="whatWeDoModal" tabindex="-1" role="dialog" aria-labelledby="whatWeDoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="whatWeDoModalLabel">What we do</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Governance and Rule of Law.</li>
+                        <li>Human Rights</li>
+                        <li>Gender Equality and Women Empowerment</li>
+                        <li>Health</li>
+                        <li>Economic Development</li>
+                        <li>Youth Participation</li>
+                        <li>Environment Conversation</li>
+                        <li>Inclusive Education</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="whereWeWorkModal" tabindex="-1" role="dialog" aria-labelledby="whereWeWorkModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="whereWeWorkModalLabel">Where we work</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Governance and Rule of Law.</li>
+                        <li>Human Rights</li>
+                        <li>Gender Equality and Women Empowerment</li>
+                        <li>Health</li>
+                        <li>Economic Development</li>
+                        <li>Youth Participation</li>
+                        <li>Environment Conversation</li>
+                        <li>Inclusive Education</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="donateModal" tabindex="-1" role="dialog" aria-labelledby="donateModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donateModalLabel">APPLY</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Application information here...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper" style="margin: 0;padding: 0;width: 100%; top: 80px;">
+        <div class="swiper-wrapper">
+            
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.29_7c6ad8c2.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.30_6c9e4e7b.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.30_c8ed77d2.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.31_2e20d84f.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.31_a0818ba8.jpg"></div>
+            <div class="swiper-slide"><img src="IMAGES/background2.jpg"></div>
+        </div>
+        
+        <div class="swiper-pagination"></div>
+        
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <!-- Flip card section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="IMAGES/WhatsApp Image 2024-05-26 at 16.04.29_7c6ad8c2.jpg" alt="Image 1">
+                        </div>
+                        <div class="flip-card-back">
+                            <h2>Image 1 Description</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="IMAGES/Profile photo.jpg" alt="Image 2">
+                        </div>
+                        <div class="flip-card-back">
+                            <h2>Image 2 Description</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src=" IMAGES/images 2.jpg" style="object-fit: cover;" alt="Image 3">
+                        </div>
+                        <div class="flip-card-back">
+                            <h2>Image 3 Description</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="curriculum-section">
+        <h2 class="curriculum-title">Our Curriculum</h2>
+        <div class="swiper curriculum-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="IMAGES/sample_image1.jpg" alt="EYFS">
+                    <div class="curriculum-description">The EYFS curriculum focuses on the holistic development of children, covering areas such as communication, physical development, and personal, social, and emotional development.</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="IMAGES/sample_image2.jpg" alt="Primary Education">
+                    <div class="curriculum-description">Our primary education curriculum emphasizes core subjects like mathematics, science, and literacy, along with fostering creativity through arts and physical education.</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="IMAGES/sample_image3.jpg" alt="Secondary Education">
+                    <div class="curriculum-description">Secondary education at Blue Jay Schools prepares students for higher education and future careers with a strong focus on academic excellence and critical thinking skills.</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="IMAGES/sample_image4.jpg" alt="Extracurricular Activities">
+                    <div class="curriculum-description">We offer a wide range of extracurricular activities including sports, music, drama, and debate clubs to ensure a well-rounded education for our students.</div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    <div class="gallery-section">
+        <h2 class="gallery-title">Our Gallery</h2>
+        <div class="gallery-description">Explore our vibrant and dynamic school environment through our gallery.</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="IMAGES/sample_image5.jpg" alt="Gallery Image 1" style="width: 100%; height: auto;">
+                </div>
+                <div class="col-md-4">
+                    <img src="IMAGES/sample_image6.jpg" alt="Gallery Image 2" style="width: 100%; height: auto;">
+                </div>
+                <div class="col-md-4">
+                    <img src="IMAGES/sample_image7.jpg" alt="Gallery Image 3" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sign-up-section">
+        <h2 class="sign-up-title">Sign Up for Admission</h2>
+        <div class="sign-up-description">Join our community and give your child the best start in their educational journey. Fill in the form below to apply.</div>
+        <div class="sign-up-form">
+            <form>
+                <input type="text" class="form-control" placeholder="Student Name" required>
+                <input type="email" class="form-control" placeholder="Parent Email" required>
+                <input type="tel" class="form-control" placeholder="Parent Phone" required>
+                <input type="text" class="form-control" placeholder="Address" required>
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+      
+        const swiper = new Swiper('.swiper', {
+            autoplay: {
+                delay: 3000,
+            },
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+    
+
+    
+</body>
+</html>
